@@ -2,6 +2,10 @@
 
 ShortLink is a URL shortener application with a backend implemented in Java and a frontend built using React.
 
+![landingpage](https://github.com/user-attachments/assets/732955c0-0faf-45a2-87dc-588ed69f978a)
+
+
+
 ## Features
 
 - Shorten long URLs
