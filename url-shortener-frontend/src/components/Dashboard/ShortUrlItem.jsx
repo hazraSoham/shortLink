@@ -9,7 +9,11 @@ import { Link } from 'react-router-dom';
 
 const ShortUrlAnalytics = ({ url }) => {
 
-    const baseUrl = `${import.meta.env.VITE_REACT_SUBDOMAIN}/`;
+    // const baseUrl = `${import.meta.env.VITE_REACT_SUBDOMAIN}/`;
+
+    const baseUrl = `${import.meta.env.VITE_REACT_FRONT_END_URL}/`;
+    const shortLinkUrl = baseUrl + 'url/' + url.shortUrl;
+
     const { token } = useStoreContext();
     const [analyticsToggle, setAnalyticsToggle] = useState(false);
     const [analyticsData, setAnalyticsData] = useState([]);
@@ -29,7 +33,7 @@ const ShortUrlAnalytics = ({ url }) => {
 
     // Copy short URL to clipboard
     const copyToClipboard = (shortUrl) => {
-        const fullUrl = `${baseUrl}${shortUrl}`;
+        const fullUrl = baseUrl + 'url/' + shortUrl;
         navigator.clipboard.writeText(fullUrl);
         toast.success('Copied to clipboard', {
             duration: 2000,
@@ -91,8 +95,8 @@ const ShortUrlAnalytics = ({ url }) => {
                         <Link
                             target='_'
                             className="flex text-lg font-medium "
-                            to={import.meta.env.VITE_REACT_SUBDOMAIN + "/" + `${url.shortUrl}`}>
-                            {baseUrl + url.shortUrl}
+                            to={shortLinkUrl}>
+                            {shortLinkUrl}
                             <ExternalLink className="h-6 w-4 ml-1 stroke-current" />
                         </Link>
                     </div>

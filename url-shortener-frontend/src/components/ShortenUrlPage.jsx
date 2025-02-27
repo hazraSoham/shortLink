@@ -5,13 +5,15 @@ import Redirect from './Redirecting';
 const ShortenUrlPage = () => {
 
     // fetches the dynamic slug of the url
-    const { url } = useParams();
+    const { shortenedLink } = useParams();
     const [redirectUrl, setRedirectUrl] = useState('');
+
+    // console.log('url -> ', shortenedLink);
 
     // whenever change redirect
     useEffect(() => {
-        if(url) {
-            setRedirectUrl(import.meta.env.VITE_BACKEND_URL + `/${url}`)
+        if(shortenedLink) {
+            setRedirectUrl(import.meta.env.VITE_BACKEND_URL + `/${shortenedLink}`)
         }
     })
 
